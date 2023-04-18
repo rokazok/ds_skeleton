@@ -1,0 +1,26 @@
+# Register any variables
+# When users:
+# 1. instantiate an object with:
+#    myobject = MyClass(variables=<key below>), or
+# 2. pass the key as a parsed arg:
+#    python myscript.py --variables <key below>
+# The object will create a dict with the variables below. Access this dict with:
+#  myobject.vars
+#  ex from #1. if variables='universal', then myobject.vars['s3_key']['archive'] == "output/forecast/archive"
+
+# universal = Default variables that are constant regardless of environment.
+# multi-channel forecasts write to output/v2/ (Sept 2022 onwards)
+universal:
+  s3: "item-demand-forecast-nonprod"  
+  s3-arn-role: "arn:aws:iam::417188141090:role/nonprod_merch_role"
+  s3_key:  
+    input: "input/master-input-python"            # training data
+    reference: "input/reference"                  # commonly used data like fiscal dates, merch hierarchy
+    parsed_args: "input/parsed_args"              # parsed args for adhoc runs
+    worker_assignment: "input/parallel"           # worker assignment files
+    forecasts: "v3_exploration_research/forecast"    # forecast outputs parent folder
+    metrics: "v3_exploration_research/metrics" 
+    
+  table:
+    training: "schema.training_data_table" 
+    

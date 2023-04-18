@@ -1,0 +1,15 @@
+# Define ENV variables here for the initilizer.py's Config() class. 
+# These ENV variables are read and stored as a dict in Config().ENV,
+# where the key below replaces the ENV variable name
+#
+# ex. from the code below:
+# ~/.bash_profile
+# export WORKER_ID=765
+#
+# Config().ENV['worker']  # returns 765
+# 
+
+LANID: "LANID"
+worker: "WORKER_ID"
+mlp_client_id: "CLIENT_ID"
+mlp_api_key: "API_KEY"

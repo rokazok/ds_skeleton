@@ -1,0 +1,16 @@
+# file types to ignore
+.idea
+**/__pycache__
+**/mlflow_tracking_url
+**/mlruns
+**/*_checkpoints
+**/.DS_Store
+Pipfile*
+venv
+*.vscode/
+data/
+pylint_report.html
+*.coverage*
+venv*
+adhoc*
+.python-version

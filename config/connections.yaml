@@ -1,0 +1,15 @@
+# db connections accessed using a connection store with named connections
+connections: # Connection keys are lowercase
+  prod:
+    teradata: "prod-td"
+    hive: "hive-prod"
+
+  nonprod:
+    teradata: "td-nonprod"
+    hive: "hive-nonprod"
+
+  # Personal connections by LANID for local development/testing
+  lanid:
+    teradata: "my-teradata"
+    hive: "my-hive"
+

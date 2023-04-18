@@ -1,0 +1,66 @@
+# Define parsed arguments here for the initilizer.py's Config() class using argparse.add_argument().
+# Each key should have a unique name. Child keys (like name, default, help, etc) should match the template syntax
+# (See syntax: https://docs.python.org/3/library/argparse.html#the-add-argument-method )
+# because they will be passed to add_arguments() as **kwargs.
+
+# template: <-- this value does not matter, it just needs to be unique from the others.
+#   name: ['-f','--foo']
+#   action:
+#   nargs: 1
+#   const:
+#   default: 'my default'
+#   type: int
+#   choices:
+#   required: True
+#   help: 'Enter a number for foo'
+#   metavar:
+#   dest:
+
+arg0:
+  name: ['--args_from_s3']
+  help: "File name of parsed args CSV to load from the s3 key input/parsed_args/<filename>.csv. Column 1=arg name, Column 2=value. These update existing parsed args."
+
+arg1:
+  name: ['--variables']
+  help: "Which variables to load? Where 'variables' is the key in config/config.yaml. (If None, defaults to 'universal')."
+
+arg2:
+  name: ['--parallel_name']
+  help: "Name of worker assignment CSV in S3. This is useful for ad-hoc work."
+
+arg3:
+  name: ['--fcst_dt']
+  help: "date, YYYY-MM-DD from which to run (optional). Defaults to UTC today."
+
+arg4:
+  name: ['--model']
+  nargs: '+'
+  help: "Model(s) to run. This arg is also used to name results in S3."
+
+arg5:
+  name: ['--flag_bool']
+  default: False
+  action: "store_true"
+  help: "Generic boolean flag. No value required. If this argument is not called, it defaults to False."
+
+arg6:
+  name: ['--departments']
+  nargs: '+'
+  type: int
+  help: "The specific departments to be subset for the code, ex. --departments 800 820 856"
+
+arg7:
+  name: ['--channels']
+  nargs: '+'
+  help: "The specific channels to forecast, ex. --channels NCOM RCOM"
+
+arg8:
+  name: ['--flag_prod']
+  default: False
+  action: "store_true"
+  help: "Generic boolean flag for prod forecasts. No value required. If this argument is not called, it defaults to False.  If true, it runs forecasts in prod, sending final results to staged."
+
+arg9:
+  name: ['--sample']
+  type: int
+  help: "Sample N. This integear can be used for testing a script on a limited number of items instead of all items."
